@@ -1,0 +1,77 @@
+{% extends "aplicacion/base_admin.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+
+
+{% block contenido %}
+
+
+
+
+<div class="container-fluid mb-4 mt-4 ">
+  <h1 style="color: aliceblue;">Lista de usuarios</h1>
+
+</div>
+
+
+<!-- agregar Usuario -->
+<div class="d-flex justify-content-between mb-4 mt-4 mx-4"><button type="button" class="btn btn-light " data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+  Agregar Usuario
+</button> </div>
+
+
+<!-- Modal para agregar Usuario -->
+<div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="agregarUsuarioModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarProductoModalLabel">Agregar Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario de Django -->
+        <form action="" method="post" id="addUsuario" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form | crispy}}
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- tabla con los Usuario -->
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Fecha de nacimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for s in usuario  %}
+        <tr class=>
+            <td>{{s.rut}}</td>
+            <td>{{s.nombre}}</td>
+            <td>{{s.apellido}}</td>
+            <td>{{s.email}}</td>
+            <td>{{s.telefono}}</td>
+            <td>{{s.fecha_nacimiento}}</td>
+            <td>
+              <a href={% url "editarusuario" s.rut %} role="button" class="btn btn-primary text-light">Editar</a>
+              <a href={% url "eliminarusuario" s.rut %} role="button" class="btn btn-danger text-light">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor  %}
+    </tbody>
+</table>
+</div>
+{% endblock contenido %}

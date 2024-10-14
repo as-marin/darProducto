@@ -1,0 +1,76 @@
+{% extends "aplicacion/base_no_footer.html" %}
+{% load static %}
+
+
+    {% block contenido %}
+     
+    <div class="container mt-5 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="rounded bg-dark p-5 text-center">
+                    <h1 style="color: aliceblue;" class="mt-0">Cambiar Detalles</h1>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6">
+
+                        <form>
+                            <div class="input-group mb-3 pt-4">
+                                <input type="text" class="form-control" name="nombre" id="idnombre" placeholder="Ingrese su nombre" required minlength="2" oninput="limpiarSoloLetras('idnombre')" >
+                                <button type="submit" class="btn btn-light btn-lg btn-block">Cambiar</button>
+                            </div>
+                        </form>
+
+                        <form>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="apell" id="idape" placeholder="Ingrese su apellido" required minlength="2" oninput="limpiarSoloLetras('idape')" >
+                                <button type="submit" class="btn btn-light btn-lg btn-block">Cambiar</button>
+                            </div>
+                        </form>
+
+                         
+                        <form>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" name="email" id="idemail" placeholder="Ingrese su mail" required minlength="2" >
+                                <button type="submit" class="btn btn-light btn-lg btn-block">Cambiar</button>
+                            </div>
+                        </form>
+
+                        <form>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="fono" id="idfono" placeholder="Ingrese su teléfono" required minlength="9" maxlength="9" oninput="soloNumeros('idfono')" >
+                                <button type="submit" class="btn btn-light btn-lg btn-block">Cambiar</button>
+                            </div>
+                        </form>
+
+                        <form>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" name="pass1" id="idpass1" placeholder="Contraseña" required minlength="2" >
+                                <input type="password" class="form-control" name="pass2" id="idpass2" placeholder="Repetir contraseña" required minlength="2" >
+                                <button type="submit" class="btn btn-light btn-lg btn-block">Cambiar</button>
+                            </div>
+
+
+                        </form>
+                            
+                                
+                    </div>
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-sm-8">
+                            <a href="{% url "index" %}" id="btn-registro" class="btn btn-light btn-lg btn-block">Volver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="{% static "aplicacion/js/validarFecha.js" %}"></script>
+    <script src="{% static "aplicacion/js/validarRut.js" %}"></script>
+    <script src="{% static "aplicacion/js/soloLetras.js" %}"></script>
+    <script src="{% static "aplicacion/js/numGuion.js" %}"></script>
+    <script src="{% static "aplicacion/js/validarFono.js" %}"></script>
+    <script src="{% static "aplicacion/js/validarRegistroForm.js" %}"></script>
+    {% endblock contenido %}

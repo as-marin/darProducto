@@ -1,0 +1,43 @@
+{% extends "aplicacion/base_admin.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+
+
+<!-- Tabla con los datos del producto -->
+<div class="container mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img style="width: 50px;" src="{{ producto.imagen.url }}" alt="foto"></td>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.tipo }}</td>
+                <td>{{ producto.precio }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-4">
+    <form action="" method="post" id="editproducto" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href='{% url "gestion_prod" %}' role='button' class="btn btn-light border">Volver</a>
+    </form>
+</div>
+
+
+{% endblock contenido %}

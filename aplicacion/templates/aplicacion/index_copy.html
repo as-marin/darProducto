@@ -1,0 +1,104 @@
+{% extends "aplicacion/base_user_logeado.html" %}
+{% load static %}
+
+
+{% block contenido %}
+
+  <div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Slides -->
+    <div class="carousel-inner" style="max-width: 800px; margin: 0 auto;">
+        <div class="carousel-item active">
+            <img src="{% static "aplicacion/img/publi3.jpg" %}" class="d-block w-100" alt="..." style="max-height: 600px; padding-top: 50px; padding-bottom: 50px;">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static "aplicacion/img/publi3.jpg" %}" class="d-block w-100" alt="..." style="max-height: 600px; padding-top: 50px; padding-bottom: 50px;">
+        </div>
+    </div> <!-- Cierre de la etiqueta carousel-inner -->
+
+    <!-- Controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#miCarrusel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#miCarrusel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div> <!-- Cierre de la etiqueta miCarrusel -->
+
+
+  
+  
+
+
+  
+
+  <div class="d-flex justify-content-center" style="padding-top: 20px;">
+    <img src="{% static "aplicacion/img/publi.png" %}" alt="" class="img-fluid mx-auto d-block">
+  </div>
+  
+  
+
+
+
+
+<!-- productos -->
+<section class="product">
+  <div class="container">
+    <div class="row py-4">
+      <div class="col-lg-5 m-auto text-center">
+        <h1 style="font-size: 60px;">Lo más vendido</h1>
+        <h6 style="color: #696969; font-size: 20px;">Productos más comprados</h6>
+       
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-lg-3 text-center">
+        <div class="card border-0 mb-2">
+          <div class="card-body">
+            <a href="{% url "verproducto" %}"><img src="{% static "aplicacion/img/caiman.png" %}" class="img-fluid" alt="caiman"></a> 
+          </div>
+        </div>
+        <h3 style="color: #000000;">$9.990</h3>
+        <h5 style="color: #000000;">1 LT Caiman</h5>
+      </div>
+      
+      <!-- Replicación del producto -->
+      
+      <div class="col-lg-3 text-center">
+        <div class="card border-0 mb-2">
+          <div class="card-body">
+            <a href="{% url "verproducto" %}"><img src="{% static "aplicacion/img/caiman.png" %}" class="img-fluid" alt="caiman"></a> 
+          </div>
+        </div>
+        <h3 style="color: #000000;">$9.990</h3>
+        <h5 style="color: #000000;">1 LT Caiman</h5>
+      </div>
+      
+      <div class="col-lg-3 text-center">
+        <div class="card border-0 mb-2">
+          <div class="card-body">
+            <a href="{% url "verproducto" %}"><img src="{% static "aplicacion/img/caiman.png" %}" class="img-fluid" alt="caiman"></a> 
+          </div>
+        </div>
+        <h3 style="color: #000000;">$9.990</h3>
+        <h5 style="color: #000000;">1 LT Caiman</h5>
+      </div>
+      
+      <div class="col-lg-3 text-center">
+        <div class="card border-0 mb-2">
+          <div class="card-body">
+            <a href="{% url "verproducto" %}"><img src="{% static "aplicacion/img/caiman.png" %}" class="img-fluid" alt="caiman"></a> 
+          </div>
+        </div>
+        <h3 style="color: #000000;">$9.990</h3>
+        <h5 style="color: #000000;">1 LT Caiman</h5>
+      </div>
+      
+      <!-- Fin de la replicación del producto -->
+      
+    </div>
+  </div>
+</section>
+<br><br><br>
+{% endblock contenido %}

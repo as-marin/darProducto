@@ -1,0 +1,41 @@
+{% extends "aplicacion/base_admin.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+
+
+<!-- Tabla con los datos del usuario -->
+<div class="container mt-4">
+    <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>RUT</th>
+                <th>Nombre</th>
+                <th>apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ usuario.rut }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <form action="" method="post" id="editproducto" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href='{% url "gestionusuario" %}' role='button' class="btn btn-light border">Volver</a>
+    </form>
+</div>
+
+
+{% endblock contenido %}

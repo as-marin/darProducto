@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarProducto</title>
+    <link rel=" icon" href={% static "aplicacion/img/log3.png" %} type="image/x-icon">
+    <!-- Latest compiled and minified CSS -->
+<link href='{% static "aplicacion/css/bootstrap.min.css" %}' rel="stylesheet"> 
+
+<!-- Latest compiled JavaScript -->
+<script src='{% static "aplicacion/js/bootstrap.bundle.min.js" %}'></script>
+
+<link  href=" {% static "aplicacion/css/style.css" %} " rel="stylesheet">
+
+</head>
+<body style="background-color:    #e0d8c9">
+  <!-- navbar 1 -->
+  <nav style="background-color: rgb(30, 30, 30);" class="navbar navbar-expand-md">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+  
+      <a class="navbar-brand" href="{% url "index" %}"><img src="{% static "aplicacion/img/log3.png" %}" alt="logo2" width="70"></a>
+     
+      <div class="collapse navbar-collapse justify-content-between " id="navbar-toggler">
+  
+  
+        <form class="d-flex" role="search">
+          <input class="form-control custom-bg" type="search" style="width: 310px;" placeholder="¿Qué buscas?" aria-label="Search">
+          <button class="btn btn-light" type="submit" style="position: relative; left: -10px;">
+              <img src="{% static "aplicacion/img/lupa.png" %}" alt="Buscar">
+          </button>
+      </form>
+      
+      
+      
+      
+      
+        
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbar-toggler">
+            <ul class="navbar-nav mr-auto justify-content-start align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url "carniceria" %}" style="color: white;">Carniceria</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "bebidas" %}" style="color: white;">Bebidas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "despensa" %}" style="color: white;">Despensa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "lacteos" %}" style="color: white;">Lacteos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "limpieza" %}" style="color: white;">Limpieza</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "frutayv" %}" style="color: white;">Frutas Y Verduras</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+        {% if user.is_authenticated %}
+
+        {% if user.is_staff %}
+        <ul class="navbar-nav" style="display: flex; align-items: center;">
+            <li class="nav-item">
+                <a class="nav-link user" href="{% url "gestion_prod" %}" style="display: inline-block; padding: 0.5rem; border: 1px solid transparent; border-radius: 50%; margin-right: 10px;">
+                    <img src="{% static 'aplicacion/img/adm.png' %}" alt="" style="height: 2rem;">
+                </a>
+            </li>
+        </ul>
+        {% endif %}  
+
+
+
+        <ul class="navbar-nav" style="display: flex; align-items: center;">
+          {% comment %} <li class="nav-item">
+              <a class="nav-link user" href="{% url "user" %}" style="display: inline-block; padding: 0.5rem; border: 1px solid transparent; border-radius: 50%; margin-right: 10px;">
+                  <img src= "{% static "aplicacion/img/dyler.png" %}"  alt="" style="height: 2rem; filter: brightness(0) invert(1);"> 
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link user" href="{% url "opciones" %}" style="display: inline-block; padding: 0.5rem; border: 1px solid transparent; border-radius: 50%; margin-right: 10px;">
+                <img src= "{% static "aplicacion/img/user.png" %}"  alt="" style="height: 2rem; filter: brightness(0) invert(1);"> 
+            </a>
+        </li> {% endcomment %}
+      
+        <li class="nav-item">
+          <a class="nav-link user" href="{% url "historial_user" %}" style="display: inline-block; padding: 0.5rem; border: 1px solid transparent; border-radius: 50%; margin-right: 10px;">
+              <img src= "{% static "aplicacion/img/historial.png" %}"  alt="" style="height: 2rem;"> 
+          </a>
+      </li>
+
+
+          <ul class="navbar-nav" style="display: flex; align-items: center;">
+              <li class="nav-item">
+                  <a class="nav-link user" href="{% url "carrito" %}" style="display: inline-block; padding: 0.5rem; border: 1px solid transparent; border-radius: 50%; margin-right: 10px;">
+                      <img src="{% static "aplicacion/img/carrito.png" %}" alt="" style="height: 2rem; filter: brightness(0) invert(1);"> <!-- Agregado estilo para cambiar el color a blanco -->
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link user" href="{% url "cerrar_sesion" %}">Cerrar Sesion</a>
+            </li>
+            
+        
+            
+      </ul>
+        {% else %}
+        <ul class="navbar-nav" style="display: flex; align-items: center;">
+        
+
+
+          <li class="nav-item">
+              <a class="nav-link user" href="{% url "login" %}">Ingresar</a>
+          </li>
+          
+          <li class="nav-item">
+              <a class="nav-link user" href="{% url "crearu" %}">Crear Cuenta</a>
+              
+          </li>
+          {% endif %}
+      </ul>
+      </div>
+    </div>
+  </nav>
+  {% block contenido %}
+  
+  
+  {% endblock contenido %}
+
+  <!-- footer  -->
+<!-- barra celular -->
+
+<div class="container-fluid py-3 bg-dark footer">
+  <div class="row">
+    <div class="col-md-2 col-sm-3">
+      <!-- Logotipos y Certificado SSL -->
+      <img style="width: 100px;" src="{% static "aplicacion/img/log3.png" %}" alt="Logo" class="mb-2"/>
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <!-- Información de la Mesa de Ayuda -->
+      <h5>MESA DE AYUDA</h5>
+      <p>Horario de atención: Lunes a Viernes de 09:00 a 18:00 hrs.</p>
+      <!-- Otros detalles de contacto -->
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <h5>POLITICAS</h5>
+      <p>ninguna porque somos bacanes jajaja xd.</p>
+      <!-- Políticas y Condiciones -->
+      <!-- Detalles sobre devoluciones, términos, etc. -->
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <h5>REDES SOCIALES</h5>
+      <p>ninguna porque somos bacanes jajaja xd.</p>
+      <!-- Iconos de redes sociales -->
+      <!-- Agrega los íconos de tus redes sociales aquí -->
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

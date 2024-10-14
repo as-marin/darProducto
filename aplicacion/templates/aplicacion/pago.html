@@ -1,0 +1,126 @@
+{% extends "aplicacion/base_no_footer.html" %}
+{% load static %}
+
+{% block contenido %}
+
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="rounded bg-dark p-5 text-center">
+                    <!-- Contenido dentro de la figura gris -->
+                    <h1 style="color: aliceblue;" class="mt-0">Dirección de entrega</h1>
+                    <p class="text-left">Nombre +56 9 2324 4599 weastreet 321 / departamento 777 Concepcion city</p>
+                    <div class="container mt-4">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                              <a href="{% url "cambiadireccion" %}"> <button class="btn btn-light btn-sm">Agregar</button> </a> 
+                                <div class="pt-4">
+                              <select  id="direccion-select" class="form-select" aria-label="Selecciona una tarjeta existente">
+                                <option selected>Elige una dirección existente...</option>
+                                <option value="opcion1">la de mi mami</option>
+                                <option value="opcion2">juanito</option>
+                                <option value="opcion3">pedro</option>
+                                <!-- Agrega más opciones según tus necesidades -->
+                            </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="rounded bg-dark p-5 text-center">
+                    <!-- Contenido dentro de la figura gris -->
+                    <h1  style="color: aliceblue;" class="mt-0">Método de pago</h1>
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-auto">
+                            <img src="{% static "aplicacion/img/visa.png" %}" alt="">
+                        </div>
+                        <div class="col-sm-auto">
+                            <p class="text-left">4222 22****** 3333</p>
+                        </div>
+                    </div>
+                    <div class="container mt-4">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <a href="{% url "cambiatarjeta" %}"> <button class="btn btn-light btn-sm">Agregar</button> </a> 
+                                <div class="pt-4">
+                                    <select  id="direccion-select" class="form-select" aria-label="Selecciona una tarjeta existente">
+                                      <option selected>Elige una dirección existente...</option>
+                                      <option value="opcion1">la de mi mami</option>
+                                      <option value="opcion2">juanito</option>
+                                      <option value="opcion3">pedro</option>
+                                      <!-- Agrega más opciones según tus necesidades -->
+                                  </select>
+                                      </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="rounded bg-dark p-5 text-center">
+                    <!-- Contenido dentro de la figura gris -->
+                    <h1 style="color: aliceblue;" class="mt-0">Carrito de compras</h1>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <p class="mt-0">Item</p>
+                            <img style="height: 50px;" src="{% static "aplicacion/img/caiman.png" %}" alt="Item" class="img-fluid">
+                        </div>
+                        <div class="col-sm-12 col-md-4 align-items-center"> <!-- Añadido 'align-items-center' para centrar verticalmente -->
+                            <p class="mt-0">Cantidad</p>
+                            <p class="mt-0">1</p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 align-items-center"> <!-- Añadido 'align-items-center' para centrar verticalmente -->
+                            <p class="mt-0">Total</p>
+                            <p class="mt-0">$9.990</p>
+                        </div>
+                    </div>
+                
+                    <div class="container mt-3">
+                        <div class="row justify-content-center">
+                            <a href="{% url "index" %}" id="btn-pago" class="btn btn-light btn-sm">Pagar</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('btn-pago').addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar que el enlace se active
+            
+            // Crear la alerta
+            var alerta = document.createElement('div');
+            alerta.classList.add('alert', 'alert-success', 'custom-alert'); // Se agrega la clase 'custom-alert'
+            alerta.textContent = 'Pago exitoso';
+        
+            // Insertar la alerta en el body
+            document.body.appendChild(alerta);
+        
+            // Esperar 1 segundos antes de redireccionar
+            setTimeout(function() {
+                window.location.href = document.getElementById('btn-pago').href;
+            }, 1000);
+        });
+        </script>
+
+    
+<br><br><br>
+
+{% endblock contenido %}

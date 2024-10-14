@@ -1,0 +1,54 @@
+{% extends "aplicacion/base_no_footer.html" %}
+{% load static %}
+
+{% block contenido %}
+
+<!-- Mostrar historial de pedidos -->
+{% if pedidos %}
+    <h2>Mi historial de pedidos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha de Pedido</th>
+                <th>Productos</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Nombre Completo</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Departamento/Oficina/Piso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pedido in pedidos %}
+            <tr>
+                <td>{{ pedido.fecha_pedido }}</td>
+                <td>
+                    <ul> 
+                        {% for productos in pedido.productos %}
+                            
+                            <li>
+                                 {{ productos.nombre }}<br>
+                                
+                                 {{productos.cantidad}} x ${{ productos.precio_unitario }}<br>
+                            </li>
+                            
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>${{ pedido.subtotal }}</td>
+                <td>{{ pedido.estado }}</td>
+                <td>{{ pedido.nombre_completo }}</td>
+                <td>{{ pedido.email }}</td>
+                <td>{{ pedido.direccion }}</td>
+                <td>{{ pedido.departamento_oficina_piso }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    {% comment %} <p>No has realizado pedidos aún.</p> {% endcomment %}
+{% endif %}
+
+
+{% endblock contenido %}

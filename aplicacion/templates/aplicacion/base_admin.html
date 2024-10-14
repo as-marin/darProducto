@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarProductos</title>
+    <link rel=" icon" href="{% static "aplicacion/img/log3.png" %}" type="image/x-icon">
+    <!-- Latest compiled and minified CSS -->
+<link href="{% static "aplicacion/css/bootstrap.min.css" %}" rel="stylesheet"> 
+
+<!-- Latest compiled JavaScript -->
+<script src="{% static "aplicacion/js/bootstrap.bundle.min.js" %}"></script>
+<link rel="stylesheet" href="{% static "aplicacion/css/style.css" %}">
+</head>
+<body>
+<!-- navbar 1 -->
+<nav style="background-color: rgb(30, 30, 30);" class="navbar navbar-expand-md">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <a class="navbar-brand" href="{% url "index" %}"><img src="{% static "aplicacion/img/log3.png" %}" alt="logo2" width="70"></a>
+   
+    <div class="collapse navbar-collapse justify-content-between " id="navbar-toggler">
+
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbar-toggler">
+          <ul class="navbar-nav mr-auto justify-content-start align-items-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "gestion_prod" %}" style="color:aliceblue;">Gestion de productos</a>
+            </li>
+    
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url "historialEnvio" %}" style="color: aliceblue;">Historial Pedidos</a>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "gestionusuario" %}" style="color:aliceblue;">Gestion de usuarios</a>
+            </li>
+  
+
+          </ul>
+      </div>
+  </div>
+  
+</nav>
+{% block contenido %}
+
+{% endblock contenido %}
+
+<script src="{% static "aplicacion/js/validarFecha.js" %}"></script>
+<script src="{% static "aplicacion/js/validarRut.js" %}"></script>
+<script src="{% static "aplicacion/js/soloLetras.js" %}"></script>
+<script src="{% static "aplicacion/js/numGuion.js" %}"></script>
+<script src="{% static "aplicacion/js/validarFono.js" %}"></script>
+<script src="{% static "aplicacion/js/validarRegistroForm.js" %}"></script>
+<script src="{% static "aplicacion/js/verCaracteres.js" %}"></script>
+<script src="{% static "aplicacion/js/precioProd.js" %}"></script>
+
+   
+
+</body>
+</html>

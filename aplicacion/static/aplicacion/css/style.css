@@ -1,0 +1,76 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+footer {
+  background: #212529; /* Cambia el color según tus necesidades */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+
+.main h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.card-body{
+    background-color: #e0d8c9;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif; 
+    color: #000000; 
+
+  }
+
+  .custom-bg {
+    background-color: #333333; 
+    color: white; 
+}
+
+.custom-text-color {
+  color: #333333; 
+}
+
+.product .card-body img {
+  max-width: 100%; 
+  height: auto; 
+  padding: 10px; 
+}
+
+@media (min-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: auto;
+      margin-left: 490px; 
+      margin-right: 490px; 
+  }
+}
+
+
+.estilo-carrito h2 {
+  color: black; 
+}
+
+.estilo-carrito .form-label {
+  color: black; 
+}
+
+.estilo-carrito input {
+  color: whitesmoke; 
+  border-color: black;
+}

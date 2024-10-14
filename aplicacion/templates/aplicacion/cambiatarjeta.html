@@ -1,0 +1,71 @@
+{% extends "aplicacion/base_no_footer.html" %}
+{% load static %}
+
+
+
+
+{% block contenido %}
+
+
+</div>
+
+    <div  class="container mt-4 pt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div  class="rounded  p-5 text-center bg-dark">
+                    <h1 style="color: aliceblue;" class="mt-0">Cambiar Tarjeta</h1> <br>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
+
+                            <form>
+
+                                <div class="form-group mb-3">
+                                    <label for="idnombre" class="form-label"></label>
+                                    <input type="text" class="form-control" name="nombre" id="idnombre" placeholder="Ingrese su nombre" required minlength="2" oninput="limpiarSoloLetras('idnombre')" title="Ingrese el nombre del propetario" >
+                                </div>
+    
+                                <div class="form-group mb-3">
+                                    <label for="idtarjeta" class="form-label"></label>
+                                    <input type="text" class="form-control" name="tarjeta" id="idtarjeta" placeholder="Ingrese el número de la tarjeta (xxxx-xxxx-xxxx-xxxx)" required minlength="13" maxlength="18" pattern="\d{13,18}" title="Ingrese entre 13 y 18 números" oninput="limpiarSoloNumeros('idtarjeta')">
+                                </div>
+                                
+                            <div class="form-group mb-3">
+                                <label for="idcodigo" class="form-label"></label>
+                                <input type="text" class="form-control" placeholder="Ingrese su codigo de seguridad (xxx)" required minlength="3" maxlength="3" pattern="\d{3}" >
+                            </div>
+                           
+                            <div class="form-group mb-3">
+                                <label for="idfechavenc" class="form-label"></label>
+                                <input type="text" class="form-control" placeholder="Seleccione su fecha de vencimiento" required title="Ingrese la fecha de vencimiento">
+                            </div>
+                            
+                   
+                            
+
+
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-sm-8">
+                                    <button  type="submit" class="btn btn-light btn-lg btn-block">Guardar</button>
+                                </div>
+                                
+                            </div>
+          
+                    </form>
+
+                   
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+   
+
+    
+   
+<script src="{% static "aplicacion/js/soloLetras.js" %}"></script>
+<script src="{% static "aplicacion/js/soloNumeros.js" %}"></script>
+
+{% endblock contenido %}

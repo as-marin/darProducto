@@ -1,0 +1,38 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+
+
+{% block contenido %}
+
+
+
+<!-- productos -->
+<section class="product">
+  <div class="container">
+    <div class="row py-4">
+      <div class="col-lg-5 m-auto text-center">
+        <h1 style="font-size: 60px;">Limpieza</h1>
+        <h1 style="font-size: 60px;">Los más vendido</h1>
+        <h6 style="color: #696969; font-size: 20px;">Productos más comprados</h6>
+        {% comment %} <button>Filtro</button>  <button>Filtro</button>  <button>Filtro</button>  <button>Filtro</button> <button>Filtro</button> {% endcomment %}
+      </div>
+    </div>
+    <div class="row ">
+      {% for p in producto  %}
+      <div class="col-lg-3 text-center">
+        <div class="card border-0 mb-2">
+          <div class="card-body">
+            <a href="{% url "verproducto" p.id %}"><img style="width: 350px; height: 250px" src="{{p.imagen.url}}" class="img-fluid" alt="{{p.nombre}}"></a> 
+          </div>
+        </div>
+        <h3 style="color: #000000;">${{p.precio}}</h3>
+        <h5 style="color: #000000;">{{p.nombre}}</h5>
+      </div>
+      {% endfor  %}
+    </div>
+  </div>
+</section>
+
+<div class="container pb-4 pt-4">
+</div>
+{% endblock contenido %}

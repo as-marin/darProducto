@@ -1,0 +1,28 @@
+{% extends "aplicacion/base_no_footer.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+  
+
+
+     
+  <div class="container mt-5 pb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="rounded bg-dark p-5 text-center">
+                    {% crispy form %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static "aplicacion/js/validarFecha.js" %}"></script>
+<script src="{% static "aplicacion/js/validarRut.js" %}"></script>
+<script src="{% static "aplicacion/js/soloLetras.js" %}"></script>
+<script src="{% static "aplicacion/js/numGuion.js" %}"></script>
+<script src="{% static "aplicacion/js/validarFono.js" %}"></script>
+<script src="{% static "aplicacion/js/validarRegistroForm.js" %}"></script>
+{% endblock contenido %}

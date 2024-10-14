@@ -1,0 +1,72 @@
+{% extends "aplicacion/base_no_footer.html" %}
+{% load static %}
+
+{% block contenido %}
+  
+
+
+     
+  <div class="container mt-5 pb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="rounded bg-dark p-5 text-center">
+                <h1 style="color: aliceblue;" class="mt-0">Crear usuario</h1>
+                <form id="registrationForm" method="get" action="{% url "index" %}" class="">
+                    {% csrf_token %}
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6">
+                            <div class="form-group mb-3">
+                                <label for="idrut" class="form-label" id="rutMessage"></label>
+                                <input type="text" class="form-control" name="rut" id="idrut" required maxlength="10" minlength="9" placeholder="Ingrese su rut: 20434635-4" onblur="Fn.validaRut(this.value)" oninput="soloNum('idrut')">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="idnombre" class="form-label"></label>
+                                <input type="text" class="form-control" name="nombre" id="idnombre" placeholder="Ingrese su nombre" required minlength="2" oninput="limpiarSoloLetras('idnombre')" >
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="idape" class="form-label"></label>
+                                <input type="text" class="form-control" name="apell" id="idape" placeholder="Ingrese su apellido" required minlength="2" oninput="limpiarSoloLetras('idape')" >
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="idemail" class="form-label"></label>
+                                <input type="email" class="form-control" name="email" id="idemail" placeholder="Ingrese su mail" required minlength="2" >
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="idfono" class="form-label"></label>
+                                <input type="text" class="form-control" name="fono" id="idfono" placeholder="Ingrese su teléfono" required minlength="9" maxlength="9" oninput="soloNumeros('idfono')" >
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="fechaNacimiento" class="form-label" id="edadMessage"></label>
+                                <input type="date" class="form-control" id="fechaNacimiento" required onchange="validarEdad()"> 
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="idpass1" class="form-label"></label>
+                                <input type="password" class="form-control" name="pass1" id="idpass1" placeholder="Contraseña" required minlength="2" >
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="idpass2" class="form-label"></label>
+                                <input type="password" class="form-control" name="pass2" id="idpass2" placeholder="Repetir contraseña" required minlength="2" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-sm-8">
+                            <button id="btnvalida" onclick="validarFormulario()" type="submit" class="btn btn-light btn-lg btn-block" >Registrarse</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static "aplicacion/js/validarFecha.js" %}"></script>
+<script src="{% static "aplicacion/js/validarRut.js" %}"></script>
+<script src="{% static "aplicacion/js/soloLetras.js" %}"></script>
+<script src="{% static "aplicacion/js/numGuion.js" %}"></script>
+<script src="{% static "aplicacion/js/validarFono.js" %}"></script>
+<script src="{% static "aplicacion/js/validarRegistroForm.js" %}"></script>
+{% endblock contenido %}

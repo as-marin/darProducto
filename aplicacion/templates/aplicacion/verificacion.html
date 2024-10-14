@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar Jugo</title>
+    <link rel=" icon" href="{% static "aplicacion/img/log3.png" %}" type="image/x-icon">
+    <link href="{% static "aplicacion/css/bootstrap.min.css" %}" rel="stylesheet"> 
+    <script src="{% static "aplicacion/js/bootstrap.bundle.min.js" %}"></script>
+    <link rel="stylesheet" href="{% static "aplicacion/css/style.css" %}">
+
+</head>
+<body style="background-color:    #e0d8c9">
+    
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8"> <!-- Cambié el ancho a 8 columnas -->
+                <div class="rounded bg-dark p-4 text-center"> <!-- Reduje el padding para que sea más pequeño -->
+                    <!-- Contenido del cuadrado -->
+                    
+                    <img style="height: 300px;" src="{% static "aplicacion/img/log3.png" %}" alt="" class="img-fluid mb-3">
+                    <div class="container mt-4">
+                        <p class="h5">DEBES SER MAYOR DE 18 AÑOS PARA COMPRAR EN NUESTRA TIENDA.</p>
+                        <p class="h5">¿ERES MAYOR DE EDAD?</p>
+                    </div>
+    
+                    <div class="container mt-4">
+                        <!-- Utilizando Bootstrap para los botones con fondo amarillo -->
+                        <div class="row justify-content-center">
+                            <div class="col-sm-auto">
+                                <a href="{% url "index" %}" class="btn btn-light btn-lg btn-block mb-2">SI</a>
+                            </div>
+                            <div class="col-sm-auto">
+                                <a href="https://www.google.com/" class="btn btn-light   btn-lg btn-block mb-2">NO</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+</body>
+</html>

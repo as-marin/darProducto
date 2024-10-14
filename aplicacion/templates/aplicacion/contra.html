@@ -1,0 +1,59 @@
+{% extends "aplicacion/base_no_footer.html" %}
+{% load static %}
+
+{% block contenido %}
+
+    <div  class="container mt-4 pt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div  class="rounded  p-5 text-center bg-dark">
+                    <h1 style="color: aliceblue;" class="mt-0">Cambiar clave</h1> <br>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
+                            <div class="form-group mb-3">
+                                <input type="text" class="form-control" placeholder="Ingrese su correo">
+                            </div>
+                           
+                            
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-sm-8">
+                            <a href="{% url "index" %}" id="btn-ingresar" class="btn btn-light btn-lg btn-block">Enviar correo</a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+   
+
+    
+   
+
+
+      
+
+    <script>
+        document.getElementById('btn-ingresar').addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar que el enlace se active
+            
+            // Crear la alerta
+            var alerta = document.createElement('div');
+            alerta.classList.add('alert', 'alert-success', 'custom-alert'); // Se agrega la clase 'custom-alert'
+            alerta.textContent = 'ingreso exitoso';
+        
+            // Insertar la alerta en el body
+            document.body.appendChild(alerta);
+        
+            // Esperar 1 segundos antes de redireccionar
+            setTimeout(function() {
+                window.location.href = document.getElementById('btn-ingresar').href;
+            }, 1000);
+        });
+        </script>
+    
+{% endblock contenido %}
